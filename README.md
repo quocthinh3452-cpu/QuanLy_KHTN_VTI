@@ -44,13 +44,13 @@ Làm theo các bước dưới đây để khởi chạy dự án trên máy tí
    spring.jpa.hibernate.ddl-auto=update
    spring.jpa.show-sql=true
 ### Bước 3: Tải Dependencies (Thư viện Maven)
-1.Trong IntelliJ, mở tab Maven ở cạnh viền bên phải màn hình.
-2.Bấm vào biểu tượng Reload All Maven Projects (Hình hai mũi tên xoay tròn) để IntelliJ tải về các thư viện cần thiết (Spring Boot, Thymeleaf, Lombok...).
+1. Trong IntelliJ, mở tab Maven ở cạnh viền bên phải màn hình.
+2. Bấm vào biểu tượng Reload All Maven Projects (Hình hai mũi tên xoay tròn) để IntelliJ tải về các thư viện cần thiết (Spring Boot, Thymeleaf, Lombok...).
 ### Bước 4: Khởi chạy Ứng dụng
-1.Mở file chạy chính của dự án: src/main/java/org/example/crmkhtn/CrmKhtnApplication.java.
-2.Click chuột phải vào file -> Chọn Run 'CrmKhtnApplication' (Hoặc bấm nút ▶️ màu xanh lá cây ở thanh công cụ).
-3.Đợi vài giây, quan sát tab Console (Run) ở dưới cùng. Nếu thấy dòng chữ Started CrmKhtnApplication in ... seconds nghĩa là server đã chạy thành công!.
-###📖 Hướng dẫn sử dụng Phần mềm
+1. Mở file chạy chính của dự án: src/main/java/org/example/crmkhtn/CrmKhtnApplication.java.
+2. Click chuột phải vào file -> Chọn Run 'CrmKhtnApplication' (Hoặc bấm nút ▶️ màu xanh lá cây ở thanh công cụ).
+3. Đợi vài giây, quan sát tab Console (Run) ở dưới cùng. Nếu thấy dòng chữ Started CrmKhtnApplication in ... seconds nghĩa là server đã chạy thành công!.
+### 📖 Hướng dẫn sử dụng Phần mềm
 Sau khi server khởi chạy thành công, hãy mở trình duyệt web (Chrome/Edge/Safari) và truy cập vào các đường dẫn sau:
 Trang Danh sách Khách hàng (Trang chủ):
 👉 http://localhost:8080/leads
