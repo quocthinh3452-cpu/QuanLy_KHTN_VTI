@@ -52,13 +52,13 @@ Làm theo các bước dưới đây để khởi chạy dự án trên máy tí
 3. Đợi vài giây, quan sát tab Console (Run) ở dưới cùng. Nếu thấy dòng chữ Started CrmKhtnApplication in ... seconds nghĩa là server đã chạy thành công!.
 ### 📖 Hướng dẫn sử dụng Phần mềm
 Sau khi server khởi chạy thành công, hãy mở trình duyệt web (Chrome/Edge/Safari) và truy cập vào các đường dẫn sau:
-Trang Danh sách Khách hàng (Trang chủ):
-👉 http://localhost:8080/leads
+Trang Danh sách Khách hàng (Trang chủ):  
+👉  http://localhost:8080/leads  
 Tại đây bạn có thể xem toàn bộ danh sách, bấm vào các biểu tượng hành động (Mắt/Bút/Thùng rác) để thao tác.
-Thêm Khách hàng mới:
-👉 Bấm nút "Thêm mới" màu xanh trên màn hình danh sách, hoặc truy cập: http://localhost:8080/leads/new
-⚠️ Một số lưu ý về Nhập liệu:
-SĐT: Phải nhập đủ 10 số (VD: 0912345678). Không được trùng lặp SĐT giữa các khách hàng (Ràng buộc Unique).
-Email: Phải đúng định dạng chuẩn có @ và tên miền (VD: contact@company.com).
-CCCD: Bắt buộc chuẩn 12 số.
-Doanh thu: Nhập số dương, cho phép nhập số thập phân.
+Thêm Khách hàng mới:  
+👉  Bấm nút "Thêm mới" màu xanh trên màn hình danh sách, hoặc truy cập: http://localhost:8080/leads/new  
+⚠️  Một số lưu ý về Nhập liệu:  
+SĐT: Phải nhập đủ 10 số (VD: 0912345678). Không được trùng lặp SĐT giữa các khách hàng (Ràng buộc Unique).  
+Email: Phải đúng định dạng chuẩn có @ và tên miền (VD: contact@company.com).  
+CCCD: Bắt buộc chuẩn 12 số.  
+Doanh thu: Nhập số dương, cho phép nhập số thập phân.  
