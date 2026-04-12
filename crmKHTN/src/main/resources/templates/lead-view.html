@@ -126,6 +126,17 @@
                             <span th:text="${lead.salesGroupId != null ? 'Nhóm ' + lead.salesGroupId : 'Chưa phân bổ'}"></span>
                         </div>
                     </div>
+                    <div class="mb-4">
+                        <div class="info-label">Dịch vụ / Sản phẩm quan tâm</div>
+                        <div class="info-value mt-1">
+                            <span th:if="${#strings.isEmpty(lead.interestedProducts)}" class="text-muted fst-italic">Chưa xác định</span>
+
+                            <span th:unless="${#strings.isEmpty(lead.interestedProducts)}">
+            <i class="fa-solid fa-box-open text-primary me-2"></i>
+            <span th:text="${lead.interestedProducts}" class="fw-bold"></span>
+        </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

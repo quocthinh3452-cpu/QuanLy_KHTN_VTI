@@ -110,6 +110,34 @@
                                     <option value="3">3 - Giới thiệu</option>
                                 </select>
                             </div>
+                            <div class="row mb-4 mt-3">
+                                <div class="col-12">
+                                    <label class="form-label fw-bold">Sản phẩm / Dịch vụ đang quan tâm</label>
+                                    <div class="p-3 border rounded bg-light">
+                                        <div class="form-check form-check-inline me-4">
+                                            <input class="form-check-input" type="checkbox" th:field="*{interestedProducts}" value="Phần mềm CRM" id="sp1">
+                                            <label class="form-check-label" for="sp1">Phần mềm CRM</label>
+                                        </div>
+                                        <div class="form-check form-check-inline me-4">
+                                            <input class="form-check-input" type="checkbox" th:field="*{interestedProducts}" value="Phần mềm Kế toán" id="sp2">
+                                            <label class="form-check-label" for="sp2">Phần mềm Kế toán</label>
+                                        </div>
+                                        <div class="form-check form-check-inline me-4">
+                                            <input class="form-check-input" type="checkbox" th:field="*{interestedProducts}" value="Thiết kế Website" id="sp3">
+                                            <label class="form-check-label" for="sp3">Thiết kế Website</label>
+                                        </div>
+                                        <div class="form-check form-check-inline me-4">
+                                            <input class="form-check-input" type="checkbox" th:field="*{interestedProducts}" value="Dịch vụ SEO" id="sp4">
+                                            <label class="form-check-label" for="sp4">Dịch vụ SEO</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" th:field="*{interestedProducts}" value="Khác" id="sp5">
+                                            <label class="form-check-label" for="sp5">Khác</label>
+                                        </div>
+                                    </div>
+                                    <small class="text-muted d-block mt-1"><i>* Có thể chọn nhiều dịch vụ cùng lúc.</i></small>
+                                </div>
+                            </div>
                             <div class="col-md-4 mt-3 mt-md-0">
                                 <label class="form-label fw-bold">Nhóm Sales (ID)</label>
                                 <input type="number" class="form-control" th:field="*{salesGroupId}" placeholder="Mã nhóm">
