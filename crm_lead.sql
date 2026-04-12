@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 11, 2026 at 06:47 AM
+-- Generation Time: Apr 12, 2026 at 04:53 PM
 -- Server version: 9.1.0
 -- PHP Version: 8.3.14
 
@@ -42,6 +42,7 @@ CREATE TABLE IF NOT EXISTS `leads` (
   `status_id` int DEFAULT NULL,
   `source_id` int DEFAULT NULL,
   `sales_group_id` int DEFAULT NULL,
+  `interested_products` varchar(255) DEFAULT NULL COMMENT 'Sản phẩm / Dịch vụ quan tâm',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`lead_id`),
@@ -54,9 +55,9 @@ CREATE TABLE IF NOT EXISTS `leads` (
 -- Dumping data for table `leads`
 --
 
-INSERT INTO `leads` (`lead_id`, `contact_name`, `company_name`, `phone`, `email`, `address`, `province_id`, `expected_revenue`, `tax_code`, `citizen_id`, `status_id`, `source_id`, `sales_group_id`, `created_at`, `updated_at`) VALUES
-(1, 'thịnh suy', 'VTI', '0333461641', 'thinhsuy2304@gmail.com', '180 cao lo', 7, 9000000.00, '3333333333', '098465738453', 2, 1, 5, '2026-04-10 08:32:40', '2026-04-10 09:00:11'),
-(2, 'sinhvien', 'TNHH 1 thanh vien', '0987654321', 'thinhsuy2304@gmail.com', '230 tay thanh', 2, 3333333.00, '4444444444', '098576334233', 2, 2, 3, '2026-04-10 09:20:02', '2026-04-10 09:20:28');
+INSERT INTO `leads` (`lead_id`, `contact_name`, `company_name`, `phone`, `email`, `address`, `province_id`, `expected_revenue`, `tax_code`, `citizen_id`, `status_id`, `source_id`, `sales_group_id`, `interested_products`, `created_at`, `updated_at`) VALUES
+(1, 'thịnh suy', 'VTI', '0333461641', 'thinhsuy2304@gmail.com', '180 cao lo', 7, 9000000.00, '3333333333', '098465738453', 2, 1, 5, 'Phần mềm CRM,Phần mềm Kế toán', '2026-04-10 08:32:40', '2026-04-11 07:26:26'),
+(2, 'sinhvien', 'TNHH 1 thanh vien', '0987654321', 'thinhsuy2304@gmail.com', '230 tay thanh', 2, 3333333.00, '4444444444', '098576334233', 2, 2, 3, 'Thiết kế Website,Dịch vụ SEO', '2026-04-10 09:20:02', '2026-04-11 07:26:46');
 
 -- --------------------------------------------------------
 
