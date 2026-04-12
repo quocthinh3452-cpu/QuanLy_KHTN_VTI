@@ -73,4 +73,7 @@ public class Lead {
     // Database: int
     @Column(name = "sales_group_id")
     private Integer salesGroupId;
+    //bo sung thuoc tinh
+    @Column(name = "interested_products")
+    private String interestedProducts;
 }
