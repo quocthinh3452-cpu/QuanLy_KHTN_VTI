@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm/Sửa Lead</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #f8f9fc; }
+        .card { box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15); border: none; border-radius: 0.5rem; }
+    </style>
+</head>
+<body class="p-4">
+<div class="container">
+    <div class="mb-3">
+        <a th:href="@{/leads}" class="btn btn-light shadow-sm text-primary fw-bold">
+            <i class="fa-solid fa-arrow-left me-1"></i> Quay lại danh sách
+        </a>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card mt-2">
+                <div class="card-header bg-primary text-white py-3">
+                    <h5 class="mb-0"><i class="fa-solid fa-user-plus me-2"></i>Thông tin Khách hàng Tiềm năng</h5>
+                </div>
+                <div class="card-body p-4">
+                    <form th:action="@{/leads/save}" th:object="${lead}" method="post">
+                        <input type="hidden" th:field="*{leadId}" />
+
+                        <h6 class="text-primary fw-bold border-bottom pb-2 mb-3">1. Thông tin cơ bản</h6>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Tên liên hệ <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" th:classappend="${#fields.hasErrors('contactName')} ? 'is-invalid' : ''" th:field="*{contactName}" placeholder="Nhập họ và tên">
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('contactName')}" th:errors="*{contactName}"></div>
+                            </div>
+                            <div class="col-md-6 mt-3 mt-md-0">
+                                <label class="form-label fw-bold">Công Ty</label>
+                                <input type="text" class="form-control" th:field="*{companyName}" placeholder="Tên doanh nghiệp">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Số điện thoại</label>
+                                <input type="text" class="form-control" th:classappend="${#fields.hasErrors('phone')} ? 'is-invalid' : ''" th:field="*{phone}" placeholder="Ví dụ: 0912345678">
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></div>
+                            </div>
+                            <div class="col-md-6 mt-3 mt-md-0">
+                                <label class="form-label fw-bold">Email</label>
+                                <input type="email" class="form-control" th:classappend="${#fields.hasErrors('email')} ? 'is-invalid' : ''" th:field="*{email}" placeholder="abc@example.com">
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-8">
+                                <label class="form-label fw-bold">Địa chỉ chi tiết</label>
+                                <input type="text" class="form-control" th:field="*{address}" placeholder="Số nhà, đường, phường/xã...">
+                            </div>
+                            <div class="col-md-4 mt-3 mt-md-0">
+                                <label class="form-label fw-bold">Tỉnh/Thành phố (ID)</label>
+                                <input type="number" class="form-control" th:field="*{provinceId}" placeholder="Mã tỉnh thành">
+                            </div>
+                        </div>
+
+                        <h6 class="text-primary fw-bold border-bottom pb-2 mb-3 mt-4">2. Thông tin kinh doanh & Pháp lý</h6>
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">Doanh thu dự kiến</label>
+                                <div class="input-group">
+                                    <input type="number" step="0.01" class="form-control" th:classappend="${#fields.hasErrors('expectedRevenue')} ? 'is-invalid' : ''" th:field="*{expectedRevenue}">
+                                    <span class="input-group-text">VNĐ</span>
+                                </div>
+                                <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('expectedRevenue')}" th:errors="*{expectedRevenue}"></div>
+                            </div>
+
+                            <div class="col-md-4 mt-3 mt-md-0">
+                                <label class="form-label fw-bold">Mã số thuế</label>
+                                <input type="text" class="form-control" th:classappend="${#fields.hasErrors('taxCode')} ? 'is-invalid' : ''" th:field="*{taxCode}">
+                                <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('taxCode')}" th:errors="*{taxCode}"></div>
+                            </div>
+
+                            <div class="col-md-4 mt-3 mt-md-0">
+                                <label class="form-label fw-bold">CCCD</label>
+                                <input type="text" class="form-control" th:classappend="${#fields.hasErrors('citizenId')} ? 'is-invalid' : ''" th:field="*{citizenId}">
+                                <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('citizenId')}" th:errors="*{citizenId}"></div>
+                            </div>
+                        </div>
+
+                        <h6 class="text-primary fw-bold border-bottom pb-2 mb-3 mt-4">3. Phân loại Khách hàng</h6>
+                        <div class="row mb-4">
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">Trạng thái (ID)</label>
+                                <select class="form-select" th:field="*{statusId}">
+                                    <option value="">-- Chọn trạng thái --</option>
+                                    <option value="1">1 - Mới</option>
+                                    <option value="2">2 - Đang liên hệ</option>
+                                    <option value="3">3 - Đã chuyển đổi</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mt-3 mt-md-0">
+                                <label class="form-label fw-bold">Nguồn Khách hàng (ID)</label>
+                                <select class="form-select" th:field="*{sourceId}">
+                                    <option value="">-- Chọn nguồn --</option>
+                                    <option value="1">1 - Website</option>
+                                    <option value="2">2 - Facebook</option>
+                                    <option value="3">3 - Giới thiệu</option>
+                                </select>
+                            </div>
+                            <div class="row mb-4 mt-3">
+                                <div class="col-12">
+                                    <label class="form-label fw-bold">Sản phẩm / Dịch vụ đang quan tâm</label>
+                                    <div class="p-3 border rounded bg-light">
+                                        <div class="form-check form-check-inline me-4">
+                                            <input class="form-check-input" type="checkbox" th:field="*{interestedProducts}" value="Phần mềm CRM" id="sp1">
+                                            <label class="form-check-label" for="sp1">Phần mềm CRM</label>
+                                        </div>
+                                        <div class="form-check form-check-inline me-4">
+                                            <input class="form-check-input" type="checkbox" th:field="*{interestedProducts}" value="Phần mềm Kế toán" id="sp2">
+                                            <label class="form-check-label" for="sp2">Phần mềm Kế toán</label>
+                                        </div>
+                                        <div class="form-check form-check-inline me-4">
+                                            <input class="form-check-input" type="checkbox" th:field="*{interestedProducts}" value="Thiết kế Website" id="sp3">
+                                            <label class="form-check-label" for="sp3">Thiết kế Website</label>
+                                        </div>
+                                        <div class="form-check form-check-inline me-4">
+                                            <input class="form-check-input" type="checkbox" th:field="*{interestedProducts}" value="Dịch vụ SEO" id="sp4">
+                                            <label class="form-check-label" for="sp4">Dịch vụ SEO</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" th:field="*{interestedProducts}" value="Khác" id="sp5">
+                                            <label class="form-check-label" for="sp5">Khác</label>
+                                        </div>
+                                    </div>
+                                    <small class="text-muted d-block mt-1"><i>* Có thể chọn nhiều dịch vụ cùng lúc.</i></small>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mt-3 mt-md-0">
+                                <label class="form-label fw-bold">Nhóm Sales (ID)</label>
+                                <input type="number" class="form-control" th:field="*{salesGroupId}" placeholder="Mã nhóm">
+                            </div>
+                        </div>
+
+                        <hr>
+                        <div class="d-flex justify-content-end mt-3">
+                            <button type="submit" class="btn btn-primary px-4 py-2 fw-bold">
+                                <i class="fa-solid fa-floppy-disk me-1"></i> Lưu thông tin
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
